@@ -28,6 +28,6 @@ _**Awesome Python**_ ( https://github.com/vinta/awesome-python )
 
 _**r/Python**_ ( https://www.reddit.com/r/Python/ )
 
-_**Python Weekly**_ ( http://www.pythonweekly.com/ )
+_**Python Weekly**_ ( https://www.pythonweekly.com/ )
 
 _**Pycoder's Weekly**_ ( https://pycoders.com )
