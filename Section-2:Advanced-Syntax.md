@@ -298,24 +298,24 @@
   
   * Context provider(makes sure that the function can run in the correct context)
   
-  ``` Python
-  from threading import RLock
-  lock = RLock()
+   ``` Python
+   from threading import RLock
+   lock = RLock()
   
-  def synchronized(function):
-      def _synchronized(*args, **kw):
-          lock.acquire()
-          try:
-              return function(*args, **kw)
-          finally:
-              lock.release()
-      return _synchronized
+   def synchronized(function):
+       def _synchronized(*args, **kw):
+           lock.acquire()
+           try:
+               return function(*args, **kw)
+           finally:
+               lock.release()
+       return _synchronized
       
-  @synchronized
-  def thread_safe(): # make sure it locks the resource
-      pass
-      
-  ```
+   @synchronized
+   def thread_safe(): # make sure it locks the resource
+       pass
+       
+   ```
   
 # Context managers - the with statement
 
@@ -326,10 +326,12 @@
   * Running protected code in a special environment
   
 * As a class
+
 **context manager protocol consists of two special methods**
-  > \_\_enter\_\_(self) : This allows you to define what should happen before executing the code that is wrapped with context manager and returns context
-variable
-  > \_\_exit\_\_(self, exc_type, exc_value, traceback) : This allows you to perform additional cleanup operations after executing the code wrapped with context manager, and captures all exceptions that were raised in the process
+
+  > **\_\_enter\_\_(self)** : This allows you to define what should happen before executing the code that is wrapped with context manager and returns context variable
+  
+  > **\_\_exit\_\_(self, exc_type, exc_value, traceback)** : This allows you to perform additional cleanup operations after executing the code wrapped with context manager, and captures all exceptions that were raised in the process
   
   ``` Python
   class ContextIllustration:
@@ -366,8 +368,11 @@ variable
   ```
   
   **four other helpers provided by contextlib module**
+  
     > **closing(element)** : This returns the context manager that calls the element's close() method on exit. This is useful for classes that deal with streams and files.
+    
     > **supress(*exceptions)** : This suppresses any of the specified exceptions if they occur in the body of the  with statement.
+    
     > **redirect_stdout(new_target)** and  **redirect_stderr(new_target)** : These redirect the  sys.stdout or  sys.stderr output of any code within the block to another file or file-like object.
 
 
