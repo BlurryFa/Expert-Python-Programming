@@ -371,7 +371,7 @@
   
     > **closing(element)** : This returns the context manager that calls the element's close() method on exit. This is useful for classes that deal with streams and files.
     
-    > **supress(*exceptions)** : This suppresses any of the specified exceptions if they occur in the body of the  with statement.
+    > **supress(\*exceptions)** : This suppresses any of the specified exceptions if they occur in the body of the  with statement.
     
     > **redirect_stdout(new_target)** and  **redirect_stderr(new_target)** : These redirect the  sys.stdout or  sys.stderr output of any code within the block to another file or file-like object.
 
