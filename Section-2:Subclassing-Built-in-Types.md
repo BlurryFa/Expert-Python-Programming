@@ -11,6 +11,7 @@
 **Based on C3 algorithm**( http://www.python.org/download/releases/2.3/mro)
 
 # Super class
+
 ``` Python
     # Instead, the  super usage would be as follows:
     class Sister(Mama):
@@ -25,7 +26,8 @@
             print('and clean your bedroom')
 ```
 
-**Super working with  classmethod **
+**Super working with  classmethod**
+
 
 ``` Python
 class Pizza:
