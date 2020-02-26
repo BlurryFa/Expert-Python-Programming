@@ -60,15 +60,15 @@ using complete words when an abbreviation seems unclear.`
 
 ## Functions and methods
 
-**lowercase with underscores**
+**Lowercase with underscores**
 
 # The private controversy
 
-**name mangling**
+**Name mangling**
 
 # Special methods
 
-**dunder**
+**Dunder**
 
 # Properties
 
@@ -82,10 +82,137 @@ having a leading underscore when private
 
 # Modules and packages
 
-**lowercase**
+**Lowercase**
+
+# The naming guide
+
+## Using the has/is prefixes for Boolean elements
+
+> is_connected = False
+
+> has_cache = False
+
+## Using plurals for variables that are collections
+
+> connected_users = ['Tarek']
+
+> tables = {'Customer':['id', 'first_name', 'last_name']}
+
+## Using explicit names for dictionaries
+
+> persons_addresses = {'Bill': '6565 Monty Road', 'Pamela': '45 Python street'}
+
+## Avoid generic names and redundancy
+
+``` Python
+def compute(data): # too generic
+    for element in data:
+        yield element ** 2
+        
+        
+def squares(numbers): # better
+    for number in numbers:
+        yield number ** 2
+```
+
+Jeff Atwood, the co-founder of Discourse and Stack Overflow, has a very good
+article on this topic and it can be found on his blog at  http://blog.codinghorror.com/i-
+shall-call-it-somethingmanager/
+
+Following names should be avoided in function and class names
+
+* Manager
+
+* Object
+
+* Do, handle, or perform
+
+## Avoiding existing names
+
+**use a trailing underscore to avoid name collision**
+
+**_class_ keyword is often replaced by  _klass_ or  _cls_**
+
+# Best practices for arguments
+
+* Build arguments by iterative design.
+
+* Trust the arguments and your tests.
+
+* Use  \*args and  \*\*kwargs magic arguments carefully.
+
+## Building arguments by iterative design
+
+If you want to extend the signature of the function or method with new arguments in a
+way that preserves backward compatibility, you should provide default values for these
+arguments
+
+## Trusting the arguments and your tests
+
+There are 2 drawbacks of Design by Contract (DbC) programming(use assertions at the top of their functions and methods to make sure the arguments have proper content)
+
+* DbC's code explains how it should be used, making it less readable
+
+* This can make it slower, since the assertions are made on each call
 
 
+## Using \*args and \*\*kwargs magic arguments carefully
 
+# Class names
 
+A common practice is to use a suffix that informs about its type or nature, for example:
 
+* SQLEngine
+
+* MimeTypes
+
+* StringWidget
+
+* TestCase
+
+For base or abstract classes, a Base or Abstract prefix can be used as follows:
+
+* BaseCookie
+
+* AbstractFormatter
+
+Try to avoid redundancy between the class and its attributes' names as follows:
+
+` >>> SMTP.smtp_send() # redundant information in the namespace`
+
+` >>> SMTP.send() # more readable and mnemoni`
+
+# Module and package names
+
+They are often suffixed with  lib if they are implementing a protocol, as in the following:
+
+``` Python
+import smtplib
+import urllib
+import telnetlib
+```
+When choosing a name for a module, always consider its content and limit the amount
+of redundancy within the whole namespace, for example:
+
+``` Python
+from widgets.stringwidgets import TextWidget # bad
+from widgets.strings import TextWidget # better
+```
+
+# Useful tools
+
+* _pylint_ : This is a very flexible source code analyzer, giving following information
+
+  * Code duplication metrics
+  
+  * Unused variables and imports
+  
+  * Missing function, method, or class docstrings
+  
+  * Too long function signatures
+
+* _pycodestyle_ and  _flake8_ : This is a small code style checker and a wrapper that
+  adds to it some more useful features, such as static analysis and complexity
+  measurement
+  
 
